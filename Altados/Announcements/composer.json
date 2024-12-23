@@ -1,0 +1,22 @@
+{
+    "name": "altados/module-announcements",
+    "description": "Module for managing announcements",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "magento/framework": "^103"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Altados\\Announcements\\": ""
+        }
+    }
+}

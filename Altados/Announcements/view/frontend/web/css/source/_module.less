@@ -1,0 +1,40 @@
+.announcement-slider {
+    background-color: #4da6ff;
+    padding: 30px;
+    border-radius: 0px;
+    color: #fff;
+    margin-bottom: 10px;
+    .slider {
+        display: flex;
+        align-items: center;
+
+        .slick-list{
+            left: 400px;
+            width: 600px;
+        }
+
+        .slide {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .announcement-text {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .announcement-link {
+                background-color: #fff;
+                color: #4da6ff;
+                padding: 5px 10px;
+                border-radius: 3px;
+                text-decoration: none;
+                font-weight: bold;
+
+                &:hover {
+                    background-color: #e6f2ff;
+                }
+            }
+        }
+    }
+}

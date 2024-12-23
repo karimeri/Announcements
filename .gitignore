@@ -1,0 +1,6 @@
+# Magento 2 specific ignores
+/vendor/
+/.idea/
+/.vscode/
+.DS_Store
+*.log

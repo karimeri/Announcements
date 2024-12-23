@@ -1,0 +1,22 @@
+{
+    "altados_announcements": {
+        "column": {
+            "announcement_id": true,
+            "label": true,
+            "content": true,
+            "redirect_url": true,
+            "category_ids": true,
+            "start_date": true,
+            "end_date": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "ALTADOS_ANNOUNCEMENTS_DATES": true,
+            "ALTADOS_ANNOUNCEMENTS_FULLTEXT": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">announcement_form.announcement_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Announcement Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="Altados\Announcements\Block\Adminhtml\Announcement\Edit\BackButton"/>
+            <button name="delete" class="Altados\Announcements\Block\Adminhtml\Announcement\Edit\DeleteButton"/>
+            <button name="save" class="Altados\Announcements\Block\Adminhtml\Announcement\Edit\SaveButton"/>
+            <button name="save_and_continue" class="Altados\Announcements\Block\Adminhtml\Announcement\Edit\SaveAndContinueButton"/>
+        </buttons>
+        <namespace>announcement_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>announcement_form.announcement_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="announcement_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider class="Altados\Announcements\Model\Announcement\DataProvider" name="announcement_form_data_source">
+            <settings>
+                <requestFieldName>announcement_id</requestFieldName>
+                <primaryFieldName>announcement_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label translate="true">General Information</label>
+        </settings>
+        <field name="announcement_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">announcement</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>announcement_id</dataScope>
+            </settings>
+        </field>
+        <field name="label" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">announcement</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="max_text_length" xsi:type="number">255</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Label</label>
+                <dataScope>label</dataScope>
+            </settings>
+        </field>
+        <field name="content" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">announcement</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Content</label>
+                <dataScope>content</dataScope>
+            </settings>
+        </field>
+        <field name="redirect_url" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">announcement</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-url" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Redirect URL</label>
+                <dataScope>redirect_url</dataScope>
+                <notice>Enter a valid URL starting with http:// or https://</notice>
+            </settings>
+        </field>
+        <field name="category_ids" formElement="multiselect">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">announcement</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Categories</label>
+                <dataScope>category_ids</dataScope>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="Altados\Announcements\Model\Config\Source\Categories"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+        <field name="start_date" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">announcement</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Start Date</label>
+                <dataScope>start_date</dataScope>
+            </settings>
+        </field>
+        <field name="end_date" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">announcement</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">End Date</label>
+                <dataScope>end_date</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

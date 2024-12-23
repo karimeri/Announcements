@@ -1,0 +1,23 @@
+<?php /** @var $block \Altados\Announcements\Block\Category\Announcement */ ?>
+<?php if ($block->canShowAnnouncements()): ?>
+    <?php $announcements = $block->getAnnouncements(); ?>
+
+    <?php if ($announcements->getSize()): ?>
+        <div class="announcement-slider" data-mage-init='{"Altados_Announcements/js/slider":{}}'>
+            <div class="slider">
+                <?php foreach ($announcements as $announcement): ?>
+                    <div class="slide">
+                        <div class="announcement-content">
+                            <span class="announcement-text"><?php echo $this->escapeHtml($announcement->getContent()); ?></span>
+                            <?php if ($announcement->getRedirectUrl()): ?>
+                                <a href="<?php echo $this->escapeUrl($announcement->getRedirectUrl()); ?>" class="announcement-link" target="_blank">
+                                    <?php echo __('En savoir plus'); ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

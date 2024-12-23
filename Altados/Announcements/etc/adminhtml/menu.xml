@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!-- Main Announcements Menu -->
+        <add id="Altados_Announcements::announcements"
+             title="Announcements"
+             module="Altados_Announcements"
+             sortOrder="30"
+             resource="Altados_Announcements::announcements"
+             translate="title"/>
+
+        <!-- Manage Announcements Submenu -->
+        <add id="Altados_Announcements::announcement_manage"
+             title="Manage Announcements"
+             module="Altados_Announcements"
+             sortOrder="10"
+             parent="Altados_Announcements::announcements"
+             action="announcements/announcement/index"
+             resource="Altados_Announcements::announcement_manage"
+             translate="title"/>
+
+        <!-- Announcements Configuration Submenu -->
+        <add id="Altados_Announcements::announcement_configuration"
+             title="Announcements Settings"
+             module="Altados_Announcements"
+             sortOrder="20"
+             parent="Altados_Announcements::announcements"
+             action="adminhtml/system_config/edit/section/announcements"
+             resource="Altados_Announcements::announcement_configuration"
+             translate="title"/>
+    </menu>
+</config>
